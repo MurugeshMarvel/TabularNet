@@ -59,13 +59,12 @@ class TabNet(Model):
         feature_data= self.input_feature_layers(data)
         feature_out= self.input_batch_norm(feature_data)
         masked_features = feature_out
-        
-        batch_size = 
+        batch_size = tf.shape(feature_data)[0]
         #Decision step dependent variables
-        self.output_aggregated =  tf.zeros([self.batch_size, self.output_dim])
-        self.mask_values = tf.zeros([self.batch_size, self.num_features])
-        self.aggregated_mask_values = tf.zeros([self.batch_size, self.num_features])
-        self.complementary_aggregated_mask_values = tf.ones([self.batch_size, self.num_features])
+        self.output_aggregated =  tf.zeros([batch_size, self.output_dim])
+        self.mask_values = tf.zeros([batch_size, self.num_features])
+        self.aggregated_mask_values = tf.zeros([batch_size, self.num_features])
+        self.complementary_aggregated_mask_values = tf.ones([batch_size, self.num_features])
 
 
         #to_do check re_use flag in dense

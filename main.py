@@ -29,7 +29,7 @@ train_data, test_data, val_data = data_preprocess.load_dataset()
 
 inp_feature_columns = data_preprocess.make_feature_layer()
 
-MODEL = TabNet(feature_columns = inp_feature_columns, num_features= 16, feature_dim = 128, output_dim= 64, num_decision_steps= 6, relaxation_factor= 1.5, virtual_batch_size= 10, num_classes=2, batch_size= 100, batch_momentum= 0.7, is_training= True)
+MODEL = TabNet(feature_columns = inp_feature_columns, num_features= 16, feature_dim = 128, output_dim= 64, num_decision_steps= 6, relaxation_factor= 1.5, virtual_batch_size= None, num_classes=2, batch_momentum= 0.7, is_training= True)
 
 global_step = tf.compat.v1.train.get_or_create_global_step()
 

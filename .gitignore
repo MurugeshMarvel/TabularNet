@@ -1,2 +1,8 @@
 #old version of the file
 tmp/
+
+#swap files created by vim
+*.swp
+
+#ingoring pycache
+__pycache__/

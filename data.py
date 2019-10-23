@@ -34,10 +34,6 @@ class Dataset():
         self.train_data, self.test_data = train_test_split(self.data, test_size=0.15)
         self.train_data, self.val_data = train_test_split(self.train_data, test_size=0.15)
         utils.check_dir(self.data_dir)
-        train_len_size = int(self.train_data.shape[0] / 100) * 100
-        self.train_data = self.train_data.sample(train_len_size)
-        val_len_size = int(self.val_data.shape[0] / 100) * 100
-        self.val_data = self.val_data.sample(val_len_size)
         print(f"Train data shape - {self.train_data.shape}")
         print(f"Test data shape - {self.test_data.shape}")
         print(f"Val data shape - {self.val_data.shape}")
